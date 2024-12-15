@@ -64,24 +64,44 @@ class JogadorIA(Jogador):
             
         # VERIFICANDO SE HÁ ALGUMA POSIÇÃO NAS DIAGONAIS EM QUE HÁ POSSIBILIDADE DE VITÓRIA OU SE DEFENDER DE DUAS JOGADAS SEGUIDAS
             
-        # VERIFICANDO SE HÁ UMA SEQUÊNCIA O - O - ? (VITÓRIA)
+        # VERIFICANDO SE HÁ UMA SEQUÊNCIA NA DIAGONAL PRINCIPAL O - O - ? (VITÓRIA)
         if self.matriz[0][0] == self.matriz[1][1] and self.matriz[0][0] == Tabuleiro.JOGADOR_0 and self.matriz[2][2] == Tabuleiro.DESCONHECIDO:
             return (2, 2)
-        # VERIFICANDO SE HÁ UMA SEQUÊNCIA ? - O - O (VITÓRIA)
+        # VERIFICANDO SE HÁ UMA SEQUÊNCIA NA DIAGONAL PRINCIPAL ? - O - O (VITÓRIA)
         if self.matriz[1][1] == self.matriz[2][2] and self.matriz[1][1] == Tabuleiro.JOGADOR_0 and self.matriz[0][0] == Tabuleiro.DESCONHECIDO:
             return (0, 0)
-        # VERIFICANDO SE HÁ UMA SEQUÊNCIA O - ? - O (VITÓRIA)
+        # VERIFICANDO SE HÁ UMA SEQUÊNCIA NA DIAGONAL PRINCIPAL O - ? - O (VITÓRIA)
         if self.matriz[0][0] == self.matriz[2][2] and self.matriz[0][0] == Tabuleiro.JOGADOR_0 and self.matriz[1][1] == Tabuleiro.DESCONHECIDO:
             return (1, 1)
 
-        # VERIFICANDO SE HÁ UMA SEQUÊNCIA X - X - ? (DEFESA)
+        # VERIFICANDO SE HÁ UMA SEQUÊNCIA NA DIAGONAL PRINCIPAL X - X - ? (DEFESA)
         if self.matriz[0][0] == self.matriz[1][1] and self.matriz[0][0] == Tabuleiro.JOGADOR_X and self.matriz[2][2] == Tabuleiro.DESCONHECIDO:
             return (2, 2)
-        # VERIFICANDO SE HÁ UMA SEQUÊNCIA ? - X - X (DEFESA)
+        # VERIFICANDO SE HÁ UMA SEQUÊNCIA NA DIAGONAL PRINCIPAL ? - X - X (DEFESA)
         if self.matriz[1][1] == self.matriz[2][2] and self.matriz[1][1] == Tabuleiro.JOGADOR_X and self.matriz[0][0] == Tabuleiro.DESCONHECIDO:
             return (0, 0)
-        # VERIFICANDO SE HÁ UMA SEQUÊNCIA X - ? - X (DEFESA)
+        # VERIFICANDO SE HÁ UMA SEQUÊNCIA NA DIAGONAL PRINCIPAL X - ? - X (DEFESA)
         if self.matriz[0][0] == self.matriz[2][2] and self.matriz[0][0] == Tabuleiro.JOGADOR_X and self.matriz[1][1] == Tabuleiro.DESCONHECIDO:
+            return (1, 1)
+        
+        # VERIFICANDO SE HÁ UMA SEQUÊNCIA NA DIAGONAL SECUNDÁRIA O - O - ? (VITÓRIA)
+        if self.matriz[2][0] == self.matriz[1][1] and self.matriz[2][0] == Tabuleiro.JOGADOR_0 and self.matriz[0][2] == Tabuleiro.DESCONHECIDO:
+            return (0, 2)
+        # VERIFICANDO SE HÁ UMA SEQUÊNCIA NA DIAGONAL SECUNDÁRIA ? - O - O (VITÓRIA)
+        if self.matriz[0][2] == self.matriz[1][1] and self.matriz[0][2] == Tabuleiro.JOGADOR_0 and self.matriz[2][0] == Tabuleiro.DESCONHECIDO:
+            return (2, 0)
+        # VERIFICANDO SE HÁ UMA SEQUÊNCIA NA DIAGONAL SECUNDÁRIA O - ? - O (VITÓRIA)
+        if self.matriz[2][0] == self.matriz[0][2] and self.matriz[2][0] == Tabuleiro.JOGADOR_0 and self.matriz[1][1] == Tabuleiro.DESCONHECIDO:
+            return (1, 1)
+
+        # VERIFICANDO SE HÁ UMA SEQUÊNCIA NA DIAGONAL SECUNDÁRIA X - X - ? (DEFESA)
+        if self.matriz[2][0] == self.matriz[1][1] and self.matriz[2][0] == Tabuleiro.JOGADOR_X and self.matriz[0][2] == Tabuleiro.DESCONHECIDO:
+            return (0, 2)
+        # VERIFICANDO SE HÁ UMA SEQUÊNCIA NA DIAGONAL SECUNDÁRIA ? - X - X (DEFESA)
+        if self.matriz[0][2] == self.matriz[1][1] and self.matriz[0][2] == Tabuleiro.JOGADOR_X and self.matriz[2][0] == Tabuleiro.DESCONHECIDO:
+            return (2, 0)
+        # VERIFICANDO SE HÁ UMA SEQUÊNCIA NA DIAGONAL SECUNDÁRIA X - ? - X (DEFESA)
+        if self.matriz[2][0] == self.matriz[0][2] and self.matriz[2][0] == Tabuleiro.JOGADOR_X and self.matriz[1][1] == Tabuleiro.DESCONHECIDO:
             return (1, 1)
 
         # REGRA 2 - Se houver uma jogada que crie duas sequências de duas marcações, use-a
