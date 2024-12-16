@@ -1,4 +1,4 @@
-# JOGO DA VELHA COM IA ESPECIALISTA DESENVOLVIDO EM PYTHON
+# JOGO DA VELHA COM IA - DESENVOLVIDO EM PYTHON
 
 Um código desenvolvido para a disciplina de Estrutura de Dados no Curso de Engenharia da Computação na UFPB. Foram propostas 6 regras para que o computador realizasse as suas jogadas de forma inteligente:
 
