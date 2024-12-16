@@ -1,6 +1,6 @@
 # JOGO DA VELHA COM IA ESPECIALISTA DESENVOLVIDO EM PYTHON
 
-Um código desenvolvido para a disciplina de Estrutura de Dados no Curso de Engenharia da Computação na UFPB. Foram propostas 6 regras para que a IA realizasse as suas jogadas de forma inteligente:
+Um código desenvolvido para a disciplina de Estrutura de Dados no Curso de Engenharia da Computação na UFPB. Foram propostas 6 regras para que o computador realizasse as suas jogadas de forma inteligente:
 
 R1. Se você ou seu oponente tiver duas marcações em sequência, marque o
 quadrado restante.
